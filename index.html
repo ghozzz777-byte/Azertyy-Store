@@ -30,7 +30,7 @@ button{padding:12px 30px;font-size:18px}
 
 <script>
 function vote(nama){
-  fetch('https://DOMAIN-SERVER-KAMU/vote', {
+  fetch('https://patch-baghdad-put-tracker.trycloudflare.com/vote', {
     method:'POST',
     headers:{'Content-Type':'application/json'},
     body:JSON.stringify({ kandidat:nama })
