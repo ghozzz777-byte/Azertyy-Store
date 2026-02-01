@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Voting</title>
+<style>
+body{margin:0}
+.wrap{display:flex;overflow-x:scroll;scroll-snap-type:x mandatory;height:100vh}
+.page{min-width:100vw;scroll-snap-align:start;display:flex;flex-direction:column;justify-content:center;align-items:center}
+button{padding:12px 30px;font-size:18px}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="page" style="background:#f87171">
+    <h1>Andi</h1>
+    <button onclick="vote('Andi')">VOTE</button>
+  </div>
+  <div class="page" style="background:#60a5fa">
+    <h1>Budi</h1>
+    <button onclick="vote('Budi')">VOTE</button>
+  </div>
+  <div class="page" style="background:#34d399">
+    <h1>Erine</h1>
+    <button onclick="vote('Citra')">VOTE</button>
+  </div>
+</div>
+
+<script>
+function vote(nama){
+  fetch('https://DOMAIN-SERVER-KAMU/vote', {
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({ kandidat:nama })
+  })
+  .then(()=>alert('Vote terkirim ✅'))
+  .catch(()=>alert('Server offline ❌'))
+}
+</script>
+
+</body>
+</html>
